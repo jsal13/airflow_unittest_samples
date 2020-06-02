@@ -16,7 +16,3 @@ class CapitalizeLetters(BaseOperator):
     def execute(self, context):
         log.info(f'Capitalizing letters in {self.letters}')
         return (self.letters.upper())
-
-
-class MultiplyBy5Plugin(AirflowPlugin):
-    name = "multiplyby5_plugin"
