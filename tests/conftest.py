@@ -1,10 +1,21 @@
-import datetime
-
 import pytest
+import datetime
 from airflow import DAG
+
+pytest_plugins = ["helpers_namespace"]
+
 
 # What is a conftest?
 # For more info, check out: https://docs.pytest.org/en/2.7.3/plugins.html?highlight=re
+
+
+@pytest.helpers.register
+def run_task(task, dag):
+    dag.clear()
+    task.run(
+        start_date=dag.default_args["start_date"],
+        end_date=dag.default_args["start_date"],
+    )
 
 
 @pytest.fixture
