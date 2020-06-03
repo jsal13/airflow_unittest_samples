@@ -1,10 +1,9 @@
-from operators.sample_operator import CapitalizeLetters
 import pytest
-pytest_plugins = ["helpers_namespace"]
+from operators.sample_operator import CapitalizeLetters
 
 
-def test_simple_http_operator(test_dag):
-
+def test_capitalize_letters(test_dag):
+    """Tests the capitalize_letters functions."""
     capitalize_letters = CapitalizeLetters(
         task_id="capitalize",
         letters="hey everyone",

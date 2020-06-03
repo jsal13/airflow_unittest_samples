@@ -12,7 +12,9 @@ To run these, you will have to:
    - Open one terminal tab and run `airflow scheduler`
    - Open another tab and run `airflow webserver -p 8080`
 
-To test, go into the root directory and run `pytest`.
+To test, go into the root directory and run `python -m pytest`.
+
+**Note: It is not enough to run `pytest`. You must use `python -m pytest.`**
 
 ## Testing in Airflow
 

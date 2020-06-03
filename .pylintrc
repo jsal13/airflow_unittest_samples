@@ -1,0 +1,10 @@
+[MASTER]
+disable=
+    C0114, # missing-module-docstring
+    C0116, # missing-function-docstring
+
+[TYPECHECK]
+ignored-classes=pytest
+
+[LOGGING]
+logging-format-style=fstr

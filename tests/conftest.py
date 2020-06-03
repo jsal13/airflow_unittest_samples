@@ -1,9 +1,6 @@
-import pytest
 import datetime
+import pytest
 from airflow import DAG
-
-pytest_plugins = ["helpers_namespace"]
-
 
 # What is a conftest?
 # For more info, check out: https://docs.pytest.org/en/2.7.3/plugins.html?highlight=re
@@ -24,6 +21,6 @@ def test_dag():
     return DAG(
         "test_dag",
         default_args={"owner": "airflow",
-                      "start_date": datetime.date.today()},
+                      "start_date": datetime.datetime.today()},
         schedule_interval=datetime.timedelta(days=1),
     )
