@@ -12,9 +12,16 @@ To run these, you will have to:
    - Open one terminal tab and run `airflow scheduler`
    - Open another tab and run `airflow webserver -p 8080`
 
-To test, go into the root directory and run `python -m pytest`.
+To test manually, go into the root directory and run `python -m pytest`.
 
 **Note: It is not enough to run `pytest`. You must use `python -m pytest.`**
+
+## Makefile
+
+A makefile is provided for ease of use. There are two commands:
+
+- `make init`: Initializes the repo and installs the pre-commit items.
+- `make test`: Runs `python -m pytest`.
 
 ## Testing in Airflow
 

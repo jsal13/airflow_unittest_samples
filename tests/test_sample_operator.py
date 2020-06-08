@@ -5,7 +5,7 @@ from operators.sample_operator import CapitalizeLetters
 
 
 def test_capitalize_letters(test_dag, caplog):
-    """ Tests the capitalize_letters functions.
+    """ Tests the CapitalizeLetters task.
 
         To test operators, we need three pieces (with examples used here):
         1. The dag (test_dag fixture)

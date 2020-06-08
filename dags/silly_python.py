@@ -26,36 +26,25 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 
 args = {
-    'owner': 'airflow',
-    'start_date': days_ago(2),
+    "owner": "airflow",
+    "start_date": days_ago(2),
 }
 
-dag = DAG(
-    dag_id='aaaaa_silly_python',
+with DAG(
+    dag_id="aaaaa_silly_python",
     default_args=args,
     schedule_interval=None,
-    tags=['example']
-)
+    tags=["example"],
+) as dag:
 
+    def my_fn():
+        return "Hello"
 
-def my_fn():
-    return "Hello"
+    def my_fn2():
+        return "Hello2"
 
+    t1 = PythonOperator(task_id="hello1", python_callable=my_fn,)
 
-def my_fn2():
-    return "Hello2"
-
-
-t1 = PythonOperator(
-    task_id='hello1',
-    python_callable=my_fn,
-    dag=dag,
-)
-
-t2 = PythonOperator(
-    task_id='hello2',
-    python_callable=my_fn2,
-    dag=dag,
-)
+    t2 = PythonOperator(task_id="hello2", python_callable=my_fn2,)
 
 t1 >> t2
