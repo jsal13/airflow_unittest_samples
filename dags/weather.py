@@ -1,6 +1,3 @@
-import time
-from pprint import pprint
-
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
@@ -25,6 +22,8 @@ with DAG(
     # Notice that even though this hits a fake API and should fail, the validation passes.
     get_weather = GetWeatherWithAPI(task_id="get_weather")
 
-    python_fn = PythonOperator(task_id="python_fn", python_callable=other_task,)
+    python_fn = PythonOperator(
+        task_id="python_fn", python_callable=other_task,)
 
+# pylint: disable=pointless-statement
 get_weather >> python_fn

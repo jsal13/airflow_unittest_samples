@@ -6,3 +6,4 @@ logs
 unittests.cfg
 airflow.cfg
 airflow-webserver.pid
+.mypy_cache

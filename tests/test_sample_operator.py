@@ -1,5 +1,4 @@
-from datetime import datetime, timedelta
-import pytest
+from datetime import datetime
 from airflow.models import TaskInstance
 from operators.sample_operator import CapitalizeLetters
 
@@ -13,7 +12,7 @@ def test_capitalize_letters(test_dag, caplog):
         3. The task instance (ti)
 
         We execute the task instance and any returned values
-        get stored in `result` for testing. 
+        get stored in `result` for testing.
 
     """
     task = CapitalizeLetters(

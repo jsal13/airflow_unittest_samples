@@ -1,5 +1,4 @@
-from datetime import datetime, timedelta
-import pytest
+from datetime import datetime
 from airflow.models import TaskInstance
 from operators.sample_operator_with_api_call import GetWeatherWithAPI
 
@@ -13,7 +12,7 @@ def test_weather_dag(test_dag, caplog, mocker):
         3. The task instance (ti)
 
         We execute the task instance and any returned values
-        get stored in `result` for testing. 
+        get stored in `result` for testing.
 
     """
 

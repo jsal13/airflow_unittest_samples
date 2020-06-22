@@ -18,9 +18,6 @@
 
 """Example DAG demonstrating the usage of the PythonOperator."""
 
-import time
-from pprint import pprint
-
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
@@ -47,4 +44,5 @@ with DAG(
 
     t2 = PythonOperator(task_id="hello2", python_callable=my_fn2,)
 
+# pylint: disable=pointless-statement
 t1 >> t2

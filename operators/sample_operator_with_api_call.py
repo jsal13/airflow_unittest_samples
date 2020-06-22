@@ -1,7 +1,6 @@
 import logging
 import requests
 from airflow.models import BaseOperator
-from airflow.plugins_manager import AirflowPlugin
 from airflow.utils.decorators import apply_defaults
 
 log = logging.getLogger(__name__)
@@ -18,7 +17,8 @@ class GetWeatherWithAPI(BaseOperator):
     def get_weather(self):
         # This is a fake API, this doesn't actually do anything when called.
         # It will give an obvious error here, but it's used for mocking in a test
-        resp = requests.post("fakeaddress.fake/weather", data={"area": "Chicago"})
+        resp = requests.post("fakeaddress.fake/weather",
+                             data={"area": "Chicago"})
         weather = resp.json()["data"]["weather"]
         return weather
 
